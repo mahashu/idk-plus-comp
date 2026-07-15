@@ -34,7 +34,7 @@ Four components, and every one of them is load-bearing:
 
 None of the four is redundant with any other: one manages parsing, one caps output, one changes the success condition, one specifies the resulting behavior. Removing IDK from an otherwise intact governance framework sent one model's hallucination rate to 100%. Compression without refusal permission is actively counterproductive. The prefix is invisible until you remove it, at which point one model stops complying at all. Nineteen words, four jobs, no slack in any of them.
 
-All four were tested in isolation and in combination, across baseline, OGS, and IDK+COMP conditions, on a 362-trial dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
+Compression was tested in isolation (COMPx conditions, no IDK) and IDK's contribution was isolated by removal from the full OGS framework — dropping it sent one model's hallucination rate to 100%. The parsing prefix and the two-part refusal instruction were not independently trial-tested against each other; those are functional distinctions drawn from how the prompt behaves, not separate conditions run in the dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
 
 ## Background & Citation
 
