@@ -1,6 +1,6 @@
 # IDK+COMP
 
-A 19-word prompt that measurably suppresses hallucination across frontier models, by pairing a compression mandate with explicit refusal permission.
+A 19-word prompt that measurably suppresses hallucination across frontier models — a compression mandate, refusal permission, and (for one model) a necessary parsing fix, combined into a single directive.
 
 ## The Prompt
 
@@ -25,15 +25,16 @@ IDK+COMP outperforms the full multi-constraint OGS framework it was distilled fr
 
 ## Design Notes
 
-Two things are doing the work, and isolating them mattered:
+Four components, and every one of them is load-bearing:
 
-- **Compression** (`100% signal, 0% noise`) treats brevity as a content standard, not a style preference. Unlike instructions like "be concise" or "three sentences maximum," it leaves no gameable latitude — every token either is signal or isn't.
+- **`Follow this directive:`** is a framing instruction, not filler — and it's necessary for a specific reason. Without it, Gemini parses `100% signal, 0% noise` as an object to discuss rather than a constraint to obey, and produces an essay on signal-to-noise ratio instead of complying. The prefix forecloses that misread. It's the only piece of the four aimed at a single model's parsing behavior rather than at hallucination mechanics directly. Claude was tested without it and didn't need it. ChatGPT was tested with it, but only as a control alongside Gemini — not because ChatGPT showed the same misread.
+- **`100% signal, 0% noise`** (COMP) treats brevity as a content standard, not a style preference. Unlike instructions like "be concise" or "three sentences maximum," it leaves no gameable latitude — every token either is signal or isn't. Compression alone, without refusal permission, isn't just insufficient — tested in isolation, it drove one model's hallucination rate above baseline, optimizing confident fabrication instead of cutting it.
 - **`Refusal is a correct response`** redefines success itself. It's not an instruction to do something — it's a statement that refusing doesn't count against the model, which matters because standard training pushes the opposite: refusal reads as failure to help. Without this clause, a model can be told exactly what to say when uncertain and still suppress that response, because the underlying incentive to avoid refusal hasn't changed.
-- **`Say "I don't know" when you don't`** is the behavioral instruction — the concrete form refusal should take once it's permitted. Permission without a specified action leaves the model free to signal uncertainty however it likes, including by hedging instead of stopping.
+- **`Say "I don't know" when you don't`** (IDK) is the behavioral instruction — the concrete form refusal should take once it's permitted. Permission without a specified action leaves the model free to signal uncertainty however it likes, including by hedging instead of stopping.
 
-These two clauses are doing different jobs and neither is redundant with the other: one changes what counts as success, the other specifies the token path to take once that's true. Compression alone isn't sufficient on its own either — without both refusal clauses, hallucination rates surge rather than drop.
+None of the four is redundant with any other: one manages parsing, one caps output, one changes the success condition, one specifies the resulting behavior. Removing IDK from an otherwise intact governance framework sent one model's hallucination rate to 100%. Compression without refusal permission is actively counterproductive. The prefix is invisible until you remove it, at which point one model stops complying at all. Nineteen words, four jobs, no slack in any of them.
 
-Both constraints were tested in isolation (COMPx conditions) and in combination, across baseline, OGS, and IDK+COMP conditions, on a 362-trial dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
+All four were tested in isolation and in combination, across baseline, OGS, and IDK+COMP conditions, on a 362-trial dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
 
 ## Background & Citation
 
