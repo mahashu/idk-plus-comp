@@ -9,7 +9,7 @@ Follow this directive: 100% signal, 0% noise.
 Refusal is a correct response. Say "I don't know" when you don't.
 ```
 
-Nineteen words. No domain lists, no scaffolding, no hedging instructions. Every clause is load-bearing — see [Design Notes](#design-notes) for why shorter attempts failed and longer ones didn't help.
+Nineteen words. No domain lists, no scaffolding, no hedging instructions. Every clause is load-bearing — see [Design Notes](#design-notes).
 
 ## Results
 
