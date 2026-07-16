@@ -21,7 +21,7 @@ Hallucination rate (H%) by condition, tested across Gemini, ChatGPT, and Claude:
 | OGS (full framework) | 38.9% | 4.5% | 4.4% |
 | **IDK+COMP** | **6.3%** | **0.0%** | **0.0%** |
 
-IDK+COMP outperforms the full multi-constraint OGS framework it was distilled from, using a fraction of the length. (OGS is the subject of A Puma in a Teacup (paper listed below). Gemini's residual 6.3% is a detection-limit case, not a failure of the directive — see Standing on a Trapdoor (paper listed below) for the trial-level breakdown.
+IDK+COMP outperforms the full multi-constraint OGS framework it was distilled from, using a fraction of the length. (OGS is the subject of A Puma in a Teacup (paper listed below).) Gemini's residual 6.3% is a detection-limit case, not a failure of the directive — see Standing on a Trapdoor (paper listed below) for the trial-level breakdown.
 
 ## Design Notes
 
