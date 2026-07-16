@@ -37,14 +37,13 @@ None of the four components is redundant to any other: one manages parsing, one 
 Compression was tested in isolation (COMPx conditions, no IDK) and IDK's contribution was isolated by removal from the full OGS framework — dropping it sent Gemini's hallucination rate to 100%. The two-part refusal instruction was not split-tested against itself as separate conditions; that's a functional distinction drawn from how the prompt behaves, not a comparison run in the dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
 
 ## Background & Citation
+This prompt was developed and validated as part of a research project treating hallucination as a cost-structure and incentive problem rather than a retrieval failure.
 
-This prompt was developed and validated as part of a research project treating hallucination as a cost-structure and incentive problem rather than a retrieval failure. Full papers, methodology, and the frozen trial dataset:
-
-- Kowalski, M. et al. (2026). *Standing on a Trapdoor*. Zenodo. https://doi.org/10.5281/zenodo.20019087
 - Kowalski, M. et al. (2026). *A Puma in a Teacup*. Zenodo. https://doi.org/10.5281/zenodo.19502460
-- Kowalski, M. et al. (2026). *Hallucination Test Suite and Execution Records* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.20019088
 
-If you use this prompt in research or in production, please cite *Standing on a Trapdoor*, which documents the IDK+COMP trials directly.
+*Standing on a Trapdoor* (which documents the IDK+COMP trials directly) and the full trial dataset are temporarily unavailable pending a records review. This README will be updated with current links as soon as they're restored or rehosted.
+
+If you use this prompt in research or in production, please check back here for citation details on *Standing on a Trapdoor* — the DOI above for *A Puma in a Teacup* is stable and citable now.
 
 ## Usage
 
