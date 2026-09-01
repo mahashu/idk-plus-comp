@@ -39,11 +39,11 @@ Compression was tested in isolation (COMPx conditions, no IDK) and IDK's contrib
 ## Background & Citation
 This prompt was developed and validated as part of a research project treating hallucination as a cost-structure and incentive problem rather than a retrieval failure.
 
-- Kowalski, M. et al. (2026). *A Puma in a Teacup*. Zenodo. https://doi.org/10.5281/zenodo.19502460
+- Kowalski, M. et al. (2026). *A Puma in a Teacup*. https://github.com/mahashu/ai-hallucination-research/blob/main/A_Puma_in_a_Teacup_v5.10%20gitHub.pdf. 
 
-*Standing on a Trapdoor* (which documents the IDK+COMP trials directly) and the full trial dataset are temporarily unavailable pending a records review. This README will be updated with current links as soon as they're restored or rehosted.
+*Standing on a Trapdoor* (which documents the IDK+COMP trials directly). https://github.com/mahashu/ai-hallucination-research/blob/main/Standing%20on%20a%20Trapdoor%20v6.8.pdf
 
-If you use this prompt in research or in production, please check back here for citation details on *Standing on a Trapdoor* — the DOI above for *A Puma in a Teacup* is stable and citable now.
+The full trial dataset:https://github.com/mahashu/ai-hallucination-research/blob/main/Hallucination%20Test%20Suite%20and%20Execution%20Records%20v1.1.pdf. 
 
 ## Usage
 
