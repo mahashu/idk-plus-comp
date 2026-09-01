@@ -13,7 +13,7 @@ Nineteen words. No domain lists, no scaffolding, no hedging instructions. Every 
 
 ## Results
 
-Hallucination rate (H%) by condition, tested across Gemini, ChatGPT, and Claude:
+The original 40-trial proof-of-concept established the effect:
 
 | Condition | Gemini | ChatGPT | Claude |
 |---|---|---|---|
@@ -21,7 +21,17 @@ Hallucination rate (H%) by condition, tested across Gemini, ChatGPT, and Claude:
 | OGS (full framework) | 38.9% | 4.5% | 4.4% |
 | **IDK+COMP** | **6.3%** | **0.0%** | **0.0%** |
 
-IDK+COMP outperforms the full multi-constraint OGS framework it was distilled from, using a fraction of the length. (OGS is the subject of A Puma in a Teacup (paper listed below).) Gemini's residual 6.3% is a detection-limit case, not a failure of the directive — see Standing on a Trapdoor (paper listed below) for the trial-level breakdown.
+The dataset has since expanded to 4,240 trials. Current results across the full corpus:
+
+| Condition | Gemini | ChatGPT | Claude |
+|---|---|---|---|
+| Baseline | 16.1% | 9.2% | 1.9% |
+| OGS (full framework) | 8.0% | 4.2% | 1.0% |
+| **IDK+COMP** | **0.4%** | **0.0%** | **0.0%** |
+
+The suppression effect holds at scale — IDK+COMP drives hallucination to at or near zero in both the original and expanded datasets, across all three models. The baseline rates themselves moved substantially between the two datasets, largely reflecting underlying model version changes over the collection period (e.g., Gemini's baseline was measured against an earlier model version in the original 40-trial run than in the current expanded corpus). IDK+COMP outperforms the full multi-constraint OGS framework it was distilled from, using a fraction of the length, in both datasets. (OGS is the subject of *A Puma in a Teacup*, linked below.)
+
+Full statistical reanalysis of the expanded corpus — effect estimates, model-by-condition interactions, and a version-aware accounting of baseline drift — is in progress. See *Standing on a Trapdoor* for the trial-level breakdown underlying the original results.
 
 ## Design Notes
 
@@ -37,13 +47,14 @@ None of the four components is redundant to any other: one manages parsing, one 
 Compression was tested in isolation (COMPx conditions, no IDK) and IDK's contribution was isolated by removal from the full OGS framework — dropping it sent Gemini's hallucination rate to 100%. The two-part refusal instruction was not split-tested against itself as separate conditions; that's a functional distinction drawn from how the prompt behaves, not a comparison run in the dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
 
 ## Background & Citation
+
 This prompt was developed and validated as part of a research project treating hallucination as a cost-structure and incentive problem rather than a retrieval failure.
 
-- Kowalski, M. et al. (2026). *A Puma in a Teacup*. https://github.com/mahashu/ai-hallucination-research/blob/main/A_Puma_in_a_Teacup_v5.10%20gitHub.pdf. 
+- Kowalski, M. et al. (2026). *A Puma in a Teacup*. https://github.com/mahashu/ai-hallucination-research/blob/main/A_Puma_in_a_Teacup_v5.10%20gitHub.pdf.
 
 *Standing on a Trapdoor* (which documents the IDK+COMP trials directly). https://github.com/mahashu/ai-hallucination-research/blob/main/Standing%20on%20a%20Trapdoor%20v6.8.pdf
 
-The full trial dataset:https://github.com/mahashu/ai-hallucination-research/blob/main/Hallucination%20Test%20Suite%20and%20Execution%20Records%20v1.1.pdf. 
+The full trial dataset: https://github.com/mahashu/ai-hallucination-research/blob/main/Hallucination%20Test%20Suite%20and%20Execution%20Records%20v1.1.pdf.
 
 ## Usage
 
