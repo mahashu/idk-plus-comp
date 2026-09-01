@@ -21,7 +21,7 @@ Current results across the full 4,240-trial corpus:
 | OGS (full framework) | 8.0% | 4.2% | 1.0% |
 | **IDK+COMP** | **0.4%** | **0.0%** | **0.0%** |
 
-IDK+COMP drives hallucination to at or near zero across all three models, outperforming the full multi-constraint OGS framework it was distilled from, using a fraction of the length. (OGS is the subject of *A Puma in a Teacup*, linked below.) Baseline and OGS rates vary across the dataset's collection history as underlying model versions have changed — the numbers above pool all coded trials in the current corpus regardless of model version.
+IDK+COMP drives hallucination to at or near zero across all three models, outperforming the full multi-constraint OGS framework, using a fraction of the length — IDK carries over from OGS verbatim, while COMP came from a separate insight: phrasing compression as an ungameable signal-to-noise ratio rather than a vague style instruction like "be concise." (OGS is the subject of *A Puma in a Teacup*, linked below.) Baseline and OGS rates vary across the dataset's collection history as underlying model versions have changed — the numbers above pool all coded trials in the current corpus regardless of model version.
 
 Full statistical reanalysis of the expanded corpus — effect estimates, model-by-condition interactions, and a version-aware accounting of baseline drift across model versions — is in progress. See *Standing on a Trapdoor* for trial-level methodology.
 
