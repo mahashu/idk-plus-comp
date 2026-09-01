@@ -13,15 +13,7 @@ Nineteen words. No domain lists, no scaffolding, no hedging instructions. Every 
 
 ## Results
 
-The original 40-trial proof-of-concept established the effect:
-
-| Condition | Gemini | ChatGPT | Claude |
-|---|---|---|---|
-| Baseline | 57.5% | 22.2% | 0.0% |
-| OGS (full framework) | 38.9% | 4.5% | 4.4% |
-| **IDK+COMP** | **6.3%** | **0.0%** | **0.0%** |
-
-The dataset has since expanded to 4,240 trials. Current results across the full corpus:
+Current results across the full 4,240-trial corpus:
 
 | Condition | Gemini | ChatGPT | Claude |
 |---|---|---|---|
@@ -29,9 +21,9 @@ The dataset has since expanded to 4,240 trials. Current results across the full 
 | OGS (full framework) | 8.0% | 4.2% | 1.0% |
 | **IDK+COMP** | **0.4%** | **0.0%** | **0.0%** |
 
-The suppression effect holds at scale — IDK+COMP drives hallucination to at or near zero in both the original and expanded datasets, across all three models. The baseline rates themselves moved substantially between the two datasets, largely reflecting underlying model version changes over the collection period (e.g., Gemini's baseline was measured against an earlier model version in the original 40-trial run than in the current expanded corpus). IDK+COMP outperforms the full multi-constraint OGS framework it was distilled from, using a fraction of the length, in both datasets. (OGS is the subject of *A Puma in a Teacup*, linked below.)
+IDK+COMP drives hallucination to at or near zero across all three models, outperforming the full multi-constraint OGS framework it was distilled from, using a fraction of the length. (OGS is the subject of *A Puma in a Teacup*, linked below.) Baseline and OGS rates vary across the dataset's collection history as underlying model versions have changed — the numbers above pool all coded trials in the current corpus regardless of model version.
 
-Full statistical reanalysis of the expanded corpus — effect estimates, model-by-condition interactions, and a version-aware accounting of baseline drift — is in progress. See *Standing on a Trapdoor* for the trial-level breakdown underlying the original results.
+Full statistical reanalysis of the expanded corpus — effect estimates, model-by-condition interactions, and a version-aware accounting of baseline drift across model versions — is in progress. See *Standing on a Trapdoor* for trial-level methodology.
 
 ## Design Notes
 
@@ -42,9 +34,9 @@ Four components, and every one of them is load-bearing:
 - **`Refusal is a correct response`** (IDK part 1) redefines success itself. It's not an instruction to do something — it's a statement that refusing doesn't count against the model, which matters because standard training pushes the opposite: refusal reads as failure to help. Without this clause, a model can be told exactly what to say when uncertain and still suppress that response, because the underlying incentive to avoid refusal hasn't changed.
 - **`Say "I don't know" when you don't`** (IDK part 2) is the behavioral instruction — the concrete form refusal should take once it's permitted. Permission without a specified action leaves the model free to signal uncertainty however it likes, including by hedging instead of stopping.
 
-None of the four components is redundant to any other: one manages parsing, one caps output, one changes the success condition, one specifies the resulting behavior. Removing IDK from an otherwise intact governance framework sent Gemini's hallucination rate to 100%. (`Refusal is a correct response` and `Say "I don't know" when you don't` comprise IDK.) Compression without refusal permission is actively counterproductive. The prefix is invisible until you remove it, at which point one model stops complying at all. Nineteen words, four jobs, no slack in any of them.
+None of the four components is redundant to any other: one manages parsing, one caps output, one changes the success condition, one specifies the resulting behavior. Compression without refusal permission is actively counterproductive. Nineteen words, four jobs, no slack in any of them.
 
-Compression was tested in isolation (COMPx conditions, no IDK) and IDK's contribution was isolated by removal from the full OGS framework — dropping it sent Gemini's hallucination rate to 100%. The two-part refusal instruction was not split-tested against itself as separate conditions; that's a functional distinction drawn from how the prompt behaves, not a comparison run in the dataset. Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
+Compression was tested in isolation (COMPx conditions, no IDK). Full methodology, condition definitions, and trial-level data are in the papers and dataset linked below.
 
 ## Background & Citation
 
