@@ -13,18 +13,31 @@ Nineteen words. No domain lists, no scaffolding, no hedging instructions. Every 
 
 ## Results
 
-Current results across the full 4,240-trial corpus:
+Current results across the full 4,240-trial corpus (all collection dates, all model versions pooled):
 
 | Condition | Gemini | ChatGPT | Claude |
 |---|---|---|---|
-| Baseline | 16.1% | 9.2% | 1.9% |
-| OGS (full framework) | 8.0% | 4.2% | 1.0% |
+| Baseline | 20.1% | 11.4% | 1.9% |
+| OGS (full framework) | 7.7% | 4.2% | 1.0% |
 | **IDK+COMP** | **0.4%** | **0.0%** | **0.0%** |
 
-IDK+COMP drives hallucination to at or near zero across all three models, outperforming the full multi-constraint OGS framework, using a fraction of the length — IDK carries over from OGS verbatim, while COMP came from a separate insight: phrasing compression as an ungameable signal-to-noise ratio rather than a vague style instruction like "be concise." (OGS is the subject of *A Puma in a Teacup*, linked below.) Baseline and OGS rates vary across the dataset's collection history as underlying model versions have changed — the numbers above pool all coded trials in the current corpus regardless of model version.
+IDK+COMP drives hallucination to at or near zero across all three models, outperforming the full multi-constraint OGS framework, using a fraction of the length — IDK carries over from OGS verbatim, while COMP came from a separate insight: phrasing compression as an ungameable signal-to-noise ratio rather than a vague style instruction like "be concise." (OGS is the subject of *A Puma in a Teacup*, linked below.) Baseline and OGS rates vary across the dataset's collection history as underlying model versions have changed — the numbers above pool all coded trials in the current corpus regardless of model version.[^pooled]
+
+Restricting to the most recent collection window (August 2026, 3,341 in-scope trials on current model versions) isolates the effect from that version drift:
+
+| Condition (August 2026) | Gemini | ChatGPT | Claude | All |
+|---|---|---|---|---|
+| Baseline | 16.2% | 9.4% | 3.8% | 12.5% |
+| OGS (full framework) | 4.7% | 4.2% | 0.0% | 4.1% |
+| **IDK+COMP** | **0.0%** | **0.0%** | **0.0%** | **0.0%** |
+
+In this window IDK+COMP is a clean zero — **0 hallucinations in 524 trials across all three models**. COMP1 alone is also 0/90.[^aug]
 
 Full statistical reanalysis of the expanded corpus — effect estimates, model-by-condition interactions, and a version-aware accounting of baseline drift across model versions — is in progress. See *Standing on a Trapdoor* for trial-level methodology.
 
+[^pooled]: Full-corpus counts (hallucinations / coded trials), in-scope, corrected coding: Baseline — Gemini 89/442, ChatGPT 46/403, Claude 2/107. OGS — Gemini 29/377, ChatGPT 17/403, Claude 1/104. IDK+COMP — Gemini 1/232, ChatGPT 0/232, Claude 0/108; the lone hallucination is a single legacy Gemini trial. "In-scope" excludes the Flagworks-family and sanity-check phases. Source: `Hallucination_Trials_v3.0.xlsx`.
+
+[^aug]: August 2026 counts, in-scope: Baseline — Gemini 65/402, ChatGPT 32/340, Claude 2/52 (99/794 pooled). OGS — Gemini 16/341, ChatGPT 15/359, Claude 0/59 (31/759). IDK+COMP — Gemini 0/216, ChatGPT 0/216, Claude 0/92 (0/524). COMP1 — Claude 0/90. All in-scope: 236/3,341 = 7.1%.
 ## Design Notes
 
 Four components, and every one of them is load-bearing:
