@@ -1,7 +1,5 @@
 # IDK+COMP
 
-# IDK+COMP
-
 A 19-word prompt that drives hallucination to **zero across every frontier model tested** — 0 fabrications in 524 trials on Gemini, ChatGPT, and Claude (current versions), against a 12.5% baseline on the same trap questions. Across the full multi-version corpus it holds at a single hallucination in 572 trials — one early Gemini case. It matches or beats the full multi-constraint OGS framework it draws from, at a fraction of the length.
 
 The prompt combines four moves: a **compression mandate** — phrasing brevity as an ungameable signal-to-noise ratio rather than a vague "be concise"; **explicit permission to refuse**, which removes the pressure to comply; an **instruction to answer "I don't know" when that is the truth**, which supplies the thing to say instead; and, for one model, a **parsing fix** without which the others don't land. Removing the "I don't know" directive alone roughly doubles the hallucination rate (see OGS vs OGS-IDK, below).
