@@ -61,7 +61,7 @@ Compression was tested in isolation (COMPx conditions, no IDK). Full methodology
 This prompt was developed and validated as part of a research project treating hallucination as a cost-structure and incentive problem rather than a retrieval failure.
 
 ### PAPERS
-*PAPERS AWAIT UPDATING*
+*PAPERS AWAIT UPDATING (2026/09/10)*
 - Kowalski, M. et al. (2026). *A Puma in a Teacup*. https://github.com/mahashu/ai-hallucination-research/blob/main/A_Puma_in_a_Teacup_v5.10%20gitHub.pdf.
 
 - Kowalski, M. et al. (2026). *Standing on a Trapdoor* (which documents the IDK+COMP trials directly). https://github.com/mahashu/ai-hallucination-research/blob/main/Standing%20on%20a%20Trapdoor%20v6.8.pdf
