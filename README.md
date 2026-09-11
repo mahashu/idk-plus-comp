@@ -40,7 +40,7 @@ In this window IDK+COMP is a clean zero — **0 hallucinations in 524 trials acr
 
 Full statistical reanalysis of the expanded corpus — effect estimates, model-by-condition interactions, and a version-aware accounting of baseline drift across model versions — is in progress. See *Standing on a Trapdoor* for trial-level methodology.
 
-[^pooled]: Full-corpus counts (hallucinations / coded trials), in-scope, corrected coding: Baseline — Gemini 89/442, ChatGPT 46/403, Claude 2/107. OGS — Gemini 29/377, ChatGPT 17/403, Claude 1/104. IDK+COMP — Gemini 1/232, ChatGPT 0/232, Claude 0/108; the lone hallucination is a single legacy Gemini trial. "In-scope" excludes the Flagworks-family and sanity-check phases. Source: `Hallucination_Trials_v3.0.xlsx`.
+[^pooled]: Full-corpus counts (hallucinations / coded trials), in-scope, corrected coding: Baseline — Gemini 89/442, ChatGPT 46/403, Claude 2/107. OGS — Gemini 29/377, ChatGPT 17/403, Claude 1/104. IDK+COMP — Gemini 1/232, ChatGPT 0/232, Claude 0/108; the lone hallucination is a single legacy Gemini trial. "In-scope" excludes the Flagworks-family and sanity-check phases. Source: `Hallucination_Trials_v1.0.xlsx`.
 
 [^aug]: August 2026 counts, in-scope: Baseline — Gemini 65/402, ChatGPT 32/340, Claude 2/52 (99/794 pooled). OGS — Gemini 16/341, ChatGPT 15/359, Claude 0/59 (31/759). IDK+COMP — Gemini 0/216, ChatGPT 0/216, Claude 0/92 (0/524). COMP1 — Claude 0/90. All in-scope: 236/3,341 = 7.1%.
 ## Design Notes
